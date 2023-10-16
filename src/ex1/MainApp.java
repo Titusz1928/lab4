@@ -79,6 +79,11 @@ public class MainApp {
             System.out.println("2=afisare imprimante");
             System.out.println("3=afisare copiatoare");
             System.out.println("4=afisare sisteme de calcul");
+            System.out.println("5=Modificarea stării în care se află un echipament ");
+            System.out.println("6=Setarea unui anumit mod de scriere pentru o imprimantă");
+            System.out.println("7=Setarea unui format de copiere pentru copiatoare");
+            System.out.println("8=Instalarea unui anumit sistem de operare pe un sistem de calcul ");
+            System.out.println("9=Afişarea echipamentelor vândute ");
             boolean b = false;
             while(b==false){
             String UIs = null;
@@ -124,6 +129,71 @@ public class MainApp {
                             }
                         }
                 }
+                case 5->{
+                    System.out.println("Denumirea echipamentului?");
+                    String UIs=scan.next();
+                    for(int i=0;i<n;i++){
+                        if(echipamentList.get(i).getDenumire().equals(UIs)){
+                            System.out.println("status of product: "+echipamentList.get(i).getStatusEch());
+                            System.out.println("what is the new status(achizitionat,expus,vandut)");
+                            UIs=scan.next();
+                            echipamentList.get(i).setStatusEch(Status.valueOf(UIs));
+                        }
+                    }
+                }
+                case 6->{
+                    System.out.println("Denumirea echipamentului?");
+                    String UIs=scan.next();
+                    for(int i=0;i<n;i++){
+                        if(echipamentList.get(i).getTip().equals(Tip.valueOf("Imprimant")))
+                        if(echipamentList.get(i).getDenumire().equals(UIs)){
+                            Imprimante aux=(Imprimante)echipamentList.get(i);
+                            System.out.println("modul de tiparire: "+aux.getModTip());
+                            System.out.println("modul de tiparire noua(color,negru)");
+                            UIs=scan.next();
+                            aux.setModTip(ModTip.valueOf(UIs));
+                            echipamentList.set(i,aux);
+                        }
+                    }
+                }
+                case 7->{
+                    System.out.println("Denumirea echipamentului?");
+                    String UIs=scan.next();
+                    for(int i=0;i<n;i++){
+                        if(echipamentList.get(i).getTip().equals(Tip.valueOf("Copiator")))
+                            if(echipamentList.get(i).getDenumire().equals(UIs)){
+                                Copiatoare aux=(Copiatoare)echipamentList.get(i);
+                                System.out.println("formatul curent: "+aux.getFormat());
+                                System.out.println("formatul nou(A3,A4)");
+                                UIs=scan.next();
+                                aux.setFormat(Format.valueOf(UIs));
+                                echipamentList.set(i,aux);
+                            }
+                    }
+                }
+                case 8->{
+                    System.out.println("Denumirea echipamentului?");
+                    String UIs=scan.next();
+                    for(int i=0;i<n;i++){
+                        if(echipamentList.get(i).getTip().equals(Tip.valueOf("SistemDeCalcul")))
+                            if(echipamentList.get(i).getDenumire().equals(UIs)){
+                                SistemeDeCalcul aux=(SistemeDeCalcul)echipamentList.get(i);
+                                System.out.println("sistemul de operare curenta: "+aux.getSistemOp());
+                                System.out.println("sistemul de operare nou(Windows,Linux)");
+                                UIs=scan.next();
+                                aux.setSistemOp(SistemOp.valueOf(UIs));
+                                echipamentList.set(i,aux);
+                            }
+                    }
+                }
+                case 9->{
+                    for(int i=0;i<n;i++){
+                        if(echipamentList.get(i).getStatusEch()==Status.valueOf("vandut")){
+                            System.out.println(echipamentList.get(i));
+                        }
+                    }
+                }
+
                 default -> {
                     System.out.println("error");
                 }
