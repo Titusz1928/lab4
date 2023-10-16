@@ -1,0 +1,5 @@
+Imprimant1 10 13.99 7L1 expus Imprimant 200 250 100 negru
+Copiator3 5 29.99 4L3 achizitionat Copiator 20 A3
+SistemDeCalcul43 3 99.99 2L2 achizitionat SistemDeCalcul Monitor2 600 300 Windows
+Imprimant4 20 19.99 4L3 expus Imprimant 240 250 110 color
+Copiator8 10 34.99 4L3 vandut Copiator 30 A4
